@@ -1,0 +1,1765 @@
+{
+  "name": "atlassian-confluence-cloud",
+  "label": "Atlassian Confluence Cloud",
+  "description": "Atlassian Confluence is a collaborative workspace where teams create, organize, and share project documents, ideas, and knowledge in one central place.",
+  "category": "Utilities",
+  "version": "1.0.0",
+  "publisher": "Fortinet",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-atlassian-confluence-cloud/blob/release/1.0.0/docs/readme.md",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "name": "server_url",
+        "type": "text",
+        "description": "Specify the server URL of the Atlassian Confluence cloud to which you will connect and perform the automated operations.",
+        "tooltip": "Specify the server URL of the Atlassian Confluence cloud to which you will connect and perform the automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "Username",
+        "description": "Specify the username to access the Atlassian Confluence cloud to which you will connect and perform the automated operations.",
+        "tooltip": "Specify the username to access the Atlassian Confluence cloud to which you will connect and perform the automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "username"
+      },
+      {
+        "title": "API Token",
+        "description": "Specify the API token to access the Atlassian Confluence Cloud instance to which you will connect to perform automated operations.",
+        "tooltip": "Specify the API token to access the Atlassian Confluence Cloud instance to which you will connect to perform automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "api_token"
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. \nBy default, this option is set to True.",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "create_space",
+      "title": "Create Space",
+      "description": "Creates a new space. Note, currently you cannot set space labels when creating a space.",
+      "category": "investigation",
+      "annotation": "create_space",
+      "output_schema": {
+        "id": "",
+        "key": "",
+        "name": "",
+        "type": "",
+        "status": "",
+        "authorId": "",
+        "currentActiveAlias": "",
+        "createdAt": "",
+        "homepageId": "",
+        "description": {
+          "plain": {},
+          "view": {}
+        },
+        "icon": {
+          "path": "",
+          "apiDownloadLink": ""
+        },
+        "_links": {
+          "base": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Name",
+          "name": "name",
+          "type": "text",
+          "tooltip": "Specify the name of the new space that you want to create in Atlassian Confluence Cloud.",
+          "description": "Specify the name of the new space that you want to create in Atlassian Confluence Cloud.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Alias",
+          "name": "alias",
+          "type": "text",
+          "tooltip": "Specifying this field will be used as the new identifier for the space in confluence page URLs. If the property is not provided the alias will be the provided key. This property is experimental and may be changed or removed in the future.",
+          "description": "Specifying this field will be used as the new identifier for the space in confluence page URLs. If the property is not provided the alias will be the provided key. This property is experimental and may be changed or removed in the future.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Key",
+          "name": "key",
+          "type": "text",
+          "tooltip": "Specify The key for the new space. If alias is not provided, this is required.",
+          "description": "Specify The key for the new space. If alias is not provided, this is required.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Representation",
+          "name": "representation",
+          "type": "text",
+          "tooltip": "Specify the representation of the new/updated space. Note, only the 'plain' representation can be used.",
+          "description": "Specify the representation of the new/updated space. Note, only the 'plain' representation can be used.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Value",
+          "name": "value",
+          "type": "text",
+          "tooltip": "Specify the description of the space.",
+          "description": "Specify the description of the space.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Role Assignments",
+          "name": "roleAssignments",
+          "type": "json",
+          "tooltip": "Specify the role properties object in JSON format.",
+          "description": "Specify the role properties object in JSON format.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Copy Space Access Configuration",
+          "name": "copySpaceAccessConfiguration",
+          "type": "text",
+          "tooltip": "Specify the id of the space to copy the space access configuration from.",
+          "description": "Specify the id of the space to copy the space access configuration from.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Create Private Space",
+          "name": "createPrivateSpace",
+          "type": "checkbox",
+          "tooltip": "Specify whether to create the space as private.",
+          "description": "Specify whether to create the space as private.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Template Key",
+          "name": "templateKey",
+          "type": "text",
+          "tooltip": "Specify the key of the template to use.",
+          "description": "Specify the key of the template to use.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "get_spaces",
+      "title": "Get Spaces",
+      "description": "Retrieves a list of all spaces from Atlassian Confluence Cloud based on the input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "get_spaces",
+      "output_schema": {
+        "results": [
+          {
+            "id": "",
+            "key": "",
+            "name": "",
+            "type": "",
+            "status": "",
+            "authorId": "",
+            "currentActiveAlias": "",
+            "createdAt": "",
+            "homepageId": "",
+            "description": "",
+            "icon": "",
+            "_links": ""
+          }
+        ],
+        "_links": {
+          "next": "",
+          "base": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Space IDs",
+          "name": "ids",
+          "type": "text",
+          "tooltip": "Specify this parameter to filter the results to spaces based on their IDs. Multiple IDs can be provided as a comma-separated list.",
+          "description": "Specify this parameter to filter the results to spaces based on their IDs. Multiple IDs can be provided as a comma-separated list.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Space Keys",
+          "name": "keys",
+          "type": "text",
+          "tooltip": "Specify this parameter to filter the results to spaces based on their keys. Multiple keys can be specified as a comma-separated list.",
+          "description": "Specify this parameter to filter the results to spaces based on their keys. Multiple keys can be specified as a comma-separated list.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Type",
+          "name": "type",
+          "type": "select",
+          "description": "Select the type to filter the results to spaces based on their type. You can choose from following options: Collaboration\", \"Knowledge Base\", \"Personal\", \"System\", \"Onboarding\", \"xflow Sample Space",
+          "tooltip": "Select the type to filter the results to spaces based on their type. You can choose from following options: Collaboration\", \"Knowledge Base\", \"Personal\", \"System\", \"Onboarding\", \"xflow Sample Space",
+          "options": [
+            "Global",
+            "Collaboration",
+            "Knowledge Base",
+            "Personal",
+            "System",
+            "Onboarding",
+            "xflow Sample Space"
+          ],
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "select",
+          "options": [
+            "Current",
+            "Archived"
+          ],
+          "tooltip": "Select the status to filter the results to spaces based on their status. You can choose from following options: current or archived.",
+          "description": "Select the status to filter the results to spaces based on their status. You can choose from following options: current or archived.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Labels",
+          "name": "labels",
+          "type": "text",
+          "tooltip": "Specify this parameter to filter the results to spaces based on their labels. Multiple labels can be specified as a comma-separated list.",
+          "description": "Specify this parameter to filter the results to spaces based on their labels. Multiple labels can be specified as a comma-separated list.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Favorited By",
+          "name": "favorited-by",
+          "type": "text",
+          "tooltip": "Specify this parameter to filter the results to spaces favorited by the user with the given account ID.",
+          "description": "Specify this parameter to filter the results to spaces favorited by the user with the given account ID.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Not Favorited By",
+          "name": "not-favorited-by",
+          "type": "text",
+          "tooltip": "Specify this parameter to filter the results to spaces NOT favorited by the user with the specified account ID.",
+          "description": "Specify this parameter to filter the results to spaces NOT favorited by the user with the specified account ID.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Sort",
+          "name": "sort",
+          "type": "text",
+          "tooltip": "Specify this parameter to sort the result by a particular field. Valid values: id, -id, key, -key, name, -name",
+          "description": "Specify this parameter to sort the result by a particular field. Valid values: id, -id, key, -key, name, -name",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Description Format",
+          "name": "description-format",
+          "type": "select",
+          "tooltip": "Specify the content format type to be returned in the description field of the response. Valid values: plain, view",
+          "description": "Specify the content format type to be returned in the description field of the response. Valid values: plain, view",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Plain",
+            "View"
+          ]
+        },
+        {
+          "title": "Include Icon",
+          "name": "include-icon",
+          "type": "checkbox",
+          "tooltip": "If the icon for the space should be fetched or not. Default: false",
+          "description": "If the icon for the space should be fetched or not. Default: false",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "type": "integer",
+          "tooltip": "Specify the maximum number of items that this operation should return. Default: \"25\".",
+          "description": "Specify the maximum number of items that this operation should return. Default: \"25\".",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "get_specific_space_details",
+      "title": "Get Specific Spaces Details",
+      "description": "Retrieves the details of a specific space from Atlassian Confluence Cloud based on the input parameters you specified.",
+      "category": "investigation",
+      "annotation": "get_specific_space_details",
+      "output_schema": {
+        "id": "",
+        "key": "",
+        "name": "",
+        "type": "",
+        "status": "",
+        "authorId": "",
+        "createdAt": "",
+        "homepageId": "",
+        "description": {
+          "plain": {},
+          "view": {}
+        },
+        "icon": {
+          "path": "",
+          "apiDownloadLink": ""
+        },
+        "labels": {
+          "results": [
+            {
+              "id": "",
+              "name": "",
+              "prefix": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "properties": {
+          "results": [
+            {
+              "id": "",
+              "key": "",
+              "createdAt": "",
+              "createdBy": "",
+              "version": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "operations": {
+          "results": [
+            {
+              "operation": "",
+              "targetType": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "permissions": {
+          "results": [
+            {
+              "id": "",
+              "principal": "",
+              "operation": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "_links": {
+          "base": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Space ID",
+          "name": "id",
+          "type": "text",
+          "tooltip": "Specify the ID of the space to be returned.",
+          "description": "Specify the ID of the space to be returned.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Description Format",
+          "name": "description-format",
+          "type": "select",
+          "tooltip": "Specify the content format type to be returned in the description field of the response. Valid values: plain, view",
+          "description": "Specify the content format type to be returned in the description field of the response. Valid values: plain, view",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Plain",
+            "View"
+          ]
+        },
+        {
+          "title": "Include Icon",
+          "name": "include-icon",
+          "type": "checkbox",
+          "tooltip": "If the icon for the space should be fetched or not. Default: false",
+          "description": "If the icon for the space should be fetched or not. Default: false",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Include Operations",
+          "name": "include-operations",
+          "type": "checkbox",
+          "tooltip": "Selecting this parameter to includes operations associated with this space in the response, as defined in the Operation object. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "description": "Selecting this parameter to includes operations associated with this space in the response, as defined in the Operation object. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Include Properties",
+          "name": "include-properties",
+          "type": "checkbox",
+          "tooltip": "Specify this parameter to includes space properties associated with this space in the response. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "description": "Specify this parameter to includes space properties associated with this space in the response. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Include Permissions",
+          "name": "include-permissions",
+          "type": "checkbox",
+          "tooltip": "Specify this parameter to includes space permissions associated with this space in the response. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "description": "Specify this parameter to includes space permissions associated with this space in the response. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Include Role Assignments",
+          "name": "include-role-assignments",
+          "type": "checkbox",
+          "tooltip": "Specify this parameter to includes role assignments associated with this space in the response. This parameter is only accepted for EAP sites. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "description": "Specify this parameter to includes role assignments associated with this space in the response. This parameter is only accepted for EAP sites. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Include Labels",
+          "name": "include-labels",
+          "type": "checkbox",
+          "tooltip": "Specify this parameter to includes labels associated with this space in the response. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "description": "Specify this parameter to includes labels associated with this space in the response. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "create_custom_content",
+      "title": "Create Custom Content",
+      "description": "Creates a new custom content in the given space, page, blogpost or other custom content.",
+      "category": "investigation",
+      "annotation": "create_custom_content",
+      "output_schema": {
+        "id": "",
+        "type": "",
+        "status": "",
+        "title": "",
+        "spaceId": "",
+        "pageId": "",
+        "blogPostId": "",
+        "customContentId": "",
+        "authorId": "",
+        "createdAt": "",
+        "version": {
+          "createdAt": "",
+          "message": "",
+          "number": "",
+          "minorEdit": "",
+          "authorId": ""
+        },
+        "labels": {
+          "results": [
+            {
+              "id": "",
+              "name": "",
+              "prefix": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "properties": {
+          "results": [
+            {
+              "id": "",
+              "key": "",
+              "version": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "operations": {
+          "results": [
+            {
+              "operation": "",
+              "targetType": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "versions": {
+          "results": [
+            {
+              "createdAt": "",
+              "message": "",
+              "number": "",
+              "minorEdit": "",
+              "authorId": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "body": {
+          "raw": {},
+          "storage": {},
+          "atlas_doc_format": {},
+          "view": {}
+        },
+        "_links": {
+          "base": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Content Type",
+          "name": "type",
+          "type": "text",
+          "tooltip": "Specify the custom content type that you want to create in Atlassian Confluence Cloud.",
+          "description": "Specify the custom content type that you want to create in Atlassian Confluence Cloud.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "text",
+          "tooltip": "Specify the title of the custom content you want to create in Atlassian Confluence Cloud.",
+          "description": "Specify the title of the custom content you want to create in Atlassian Confluence Cloud.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Representation",
+          "name": "representation",
+          "type": "select",
+          "tooltip": "Specify the type of content representation used for the value field. Valid values: storage, atlas_doc_format, raw",
+          "description": "Specify the type of content representation used for the value field. Valid values: storage, atlas_doc_format, raw",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Storage",
+            "Atlas Doc Format",
+            "Raw"
+          ]
+        },
+        {
+          "title": "Body",
+          "name": "value",
+          "type": "text",
+          "tooltip": "Specify the body of the custom content, in the format found in the representation field.",
+          "description": "Specify the body of the custom content, in the format found in the representation field.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "select",
+          "tooltip": "Specify the status of the custom content. Defaults to current when status not provided.",
+          "description": "Specify the status of the custom content. Defaults to current when status not provided.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Current",
+            "Draft"
+          ]
+        },
+        {
+          "title": "Space ID",
+          "name": "spaceId",
+          "type": "text",
+          "tooltip": "Specify the ID of the containing space.",
+          "description": "Specify the ID of the containing space.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Page ID",
+          "name": "pageId",
+          "type": "text",
+          "tooltip": "Specify the ID of the containing page.",
+          "description": "Specify the ID of the containing page.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Current",
+            "Draft"
+          ]
+        },
+        {
+          "title": "Blog Post ID",
+          "name": "blogPostId",
+          "type": "text",
+          "tooltip": "Specify the ID of the containing Blog Post.",
+          "description": "Specify the ID of the containing Blog Post.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Custom Content ID",
+          "name": "customContentId",
+          "type": "text",
+          "tooltip": "Specify the ID of the containing custom content.",
+          "description": "Specify the ID of the containing custom content.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "get_specific_custom_content",
+      "title": "Get Specific Custom Content",
+      "description": "Returns a specific piece of custom content.",
+      "category": "investigation",
+      "annotation": "get_specific_custom_content",
+      "output_schema": {
+        "id": "",
+        "type": "",
+        "status": "",
+        "title": "",
+        "spaceId": "",
+        "pageId": "",
+        "blogPostId": "",
+        "customContentId": "",
+        "authorId": "",
+        "createdAt": "",
+        "version": {
+          "createdAt": "",
+          "message": "",
+          "number": "",
+          "minorEdit": "",
+          "authorId": ""
+        },
+        "labels": {
+          "results": [
+            {
+              "id": "",
+              "name": "",
+              "prefix": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "properties": {
+          "results": [
+            {
+              "id": "",
+              "key": "",
+              "version": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "operations": {
+          "results": [
+            {
+              "operation": "",
+              "targetType": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "versions": {
+          "results": [
+            {
+              "createdAt": "",
+              "message": "",
+              "number": "",
+              "minorEdit": "",
+              "authorId": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "body": {
+          "raw": {},
+          "storage": {},
+          "atlas_doc_format": {},
+          "view": {}
+        },
+        "_links": {
+          "base": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Custom Content ID",
+          "name": "id",
+          "type": "text",
+          "tooltip": "Specify the The ID of the custom content to be returned. If you don't know the custom content ID, use Get Custom Contents List action.",
+          "description": "Specify the The ID of the custom content to be returned. If you don't know the custom content ID, use Get Custom Contents List action.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Version",
+          "name": "version",
+          "type": "integer",
+          "tooltip": "Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details.",
+          "description": "Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Body Format",
+          "name": "body-format",
+          "type": "text",
+          "tooltip": "The content format types to be returned in the body field of the response. If available, the representation will be available under a response field of the same name under the body field. Note: If the custom content body type is storage, the storage and atlas_doc_format body formats are able to be returned. If the custom content body type is raw, only the raw body format is able to be returned. Valid values: raw, storage, atlas_doc_format, view, export_view, anonymous_export_view",
+          "description": "The content format types to be returned in the body field of the response. If available, the representation will be available under a response field of the same name under the body field. Note: If the custom content body type is storage, the storage and atlas_doc_format body formats are able to be returned. If the custom content body type is raw, only the raw body format is able to be returned. Valid values: raw, storage, atlas_doc_format, view, export_view, anonymous_export_view",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Raw",
+            "Storage",
+            "Atlas Doc Format",
+            "View",
+            "Export View",
+            "Anonymous Export View"
+          ]
+        },
+        {
+          "title": "Include Labels",
+          "name": "include-labels",
+          "type": "checkbox",
+          "tooltip": "Includes labels associated with this custom content in the response. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "description": "Includes labels associated with this custom content in the response. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Include Properties",
+          "name": "include-properties",
+          "type": "checkbox",
+          "tooltip": "Includes content properties associated with this custom content in the response. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "description": "Includes content properties associated with this custom content in the response. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Include Operations",
+          "name": "include-operations",
+          "type": "checkbox",
+          "tooltip": "Includes operations associated with this custom content in the response, as defined in the Operation object. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "description": "Includes operations associated with this custom content in the response, as defined in the Operation object. The number of results will be limited to 50 and sorted in the default sort order. A meta and _links property will be present to indicate if more results are available and a link to retrieve the rest of the results.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Include Version",
+          "name": "include-version",
+          "type": "checkbox",
+          "tooltip": "Includes the current version associated with this custom content in the response. By default this is included and can be omitted by setting the value to false.",
+          "description": "Includes the current version associated with this custom content in the response. By default this is included and can be omitted by setting the value to false.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Storage",
+            "Atlas Doc Format",
+            "Raw"
+          ]
+        },
+        {
+          "title": "Include Collaborators",
+          "name": "include-collaborators",
+          "type": "checkbox",
+          "tooltip": "Includes collaborators on the custom content.",
+          "description": "Includes collaborators on the custom content.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "get_custom_contents",
+      "title": "Get Custom Contents",
+      "description": "Retrieves a list of content from Atlassian Confluence Cloud based on the space key, page title and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "get_custom_contents",
+      "output_schema": {
+        "results": [
+          {
+            "id": "",
+            "type": "",
+            "status": "",
+            "title": "",
+            "spaceId": "",
+            "pageId": "",
+            "blogPostId": "",
+            "customContentId": "",
+            "authorId": "",
+            "createdAt": "",
+            "version": "",
+            "body": "",
+            "_links": ""
+          }
+        ],
+        "_links": {
+          "next": "",
+          "base": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Custom Content Type",
+          "name": "type",
+          "type": "text",
+          "tooltip": "Specify the type of the custom content being requested. See: https://developer.atlassian.com/cloud/confluence/custom-content/ for additional details on custom content.",
+          "description": "Specify the type of the custom content being requested. See: https://developer.atlassian.com/cloud/confluence/custom-content/ for additional details on custom content.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Custom Content IDs",
+          "name": "id",
+          "type": "text",
+          "tooltip": "Specifying this parameter to filter the results based on custom content ids. Multiple custom content ids can be specified as a comma-separated list.",
+          "description": "Specifying this parameter to filter the results based on custom content ids. Multiple custom content ids can be specified as a comma-separated list.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Space ID",
+          "name": "space-id",
+          "type": "text",
+          "tooltip": "Filter the results based on space ids. Multiple space ids can be specified as a comma-separated list.",
+          "description": "Filter the results based on space ids. Multiple space ids can be specified as a comma-separated list.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Body Format",
+          "name": "body-format",
+          "type": "text",
+          "tooltip": "Specify the content format types to be returned in the body field of the response. If available, the representation will be available under a response field of the same name under the body field.\n\nNote: If the custom content body type is storage, the storage and atlas_doc_format body formats are able to be returned. If the custom content body type is raw, only the raw body format is able to be returned.\n\nValid values: raw, storage, atlas_doc_format.",
+          "description": "Specify the content format types to be returned in the body field of the response. If available, the representation will be available under a response field of the same name under the body field.\n\nNote: If the custom content body type is storage, the storage and atlas_doc_format body formats are able to be returned. If the custom content body type is raw, only the raw body format is able to be returned.\n\nValid values: raw, storage, atlas_doc_format.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Sort",
+          "name": "sort",
+          "type": "text",
+          "tooltip": "Used to sort the result by a particular field. Valid values: id, -id, created-date, -created-date, modified-date, -modified-date, title, -title",
+          "description": "Used to sort the result by a particular field. Valid values: id, -id, created-date, -created-date, modified-date, -modified-date, title, -title",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Cursor",
+          "name": "cursor",
+          "type": "text",
+          "tooltip": "Used for pagination, this opaque cursor will be returned in the next URL in the Link response header. Use the relative URL in the Link header to retrieve the next set of results.",
+          "description": "Used for pagination, this opaque cursor will be returned in the next URL in the Link response header. Use the relative URL in the Link header to retrieve the next set of results.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "type": "integer",
+          "tooltip": "Specify the maximum number of pages per result to return. If more results exist, use the Link header to retrieve a relative URL that will return the next set of results. Default: \"25\", Maximum is 250",
+          "description": "Specify the maximum number of pages per result to return. If more results exist, use the Link header to retrieve a relative URL that will return the next set of results. Default: \"25\", Maximum is 250.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "update_custom_content",
+      "title": "Update Custom Content",
+      "description": "Update a custom content by id. At most one of spaceId, pageId, blogPostId, or customContentId is allowed in the request body. Note that if spaceId is specified, it must be the same as the spaceId used for creating the custom content as moving custom content to a different space is not supported.",
+      "category": "investigation",
+      "annotation": "update_custom_content",
+      "output_schema": {
+        "id": "",
+        "type": "",
+        "status": "",
+        "title": "",
+        "spaceId": "",
+        "pageId": "",
+        "blogPostId": "",
+        "customContentId": "",
+        "authorId": "",
+        "createdAt": "",
+        "version": {
+          "createdAt": "",
+          "message": "",
+          "number": "",
+          "minorEdit": "",
+          "authorId": ""
+        },
+        "labels": {
+          "results": [
+            {
+              "id": "",
+              "name": "",
+              "prefix": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "properties": {
+          "results": [
+            {
+              "id": "",
+              "key": "",
+              "version": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "operations": {
+          "results": [
+            {
+              "operation": "",
+              "targetType": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "versions": {
+          "results": [
+            {
+              "createdAt": "",
+              "message": "",
+              "number": "",
+              "minorEdit": "",
+              "authorId": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "body": {
+          "raw": {},
+          "storage": {},
+          "atlas_doc_format": {},
+          "view": {}
+        },
+        "_links": {
+          "base": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Custom Content ID",
+          "name": "id ",
+          "type": "text",
+          "tooltip": "Specify The ID of the custom content to be updated. If you don't know the custom content ID, use Get Custom Content List action.",
+          "description": "Specify The ID of the custom content to be updated. If you don't know the custom content ID, use Get Custom Content List action.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Custom Content Type",
+          "name": "type",
+          "type": "text",
+          "tooltip": "Specify the custom content type that you want to create in Atlassian Confluence Cloud.",
+          "description": "Specify the custom content type that you want to create in Atlassian Confluence Cloud.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "text",
+          "tooltip": "Specify the title of the custom content.",
+          "description": "Specify the title of the custom content.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "select",
+          "tooltip": "Specify the status of the custom content. Defaults to current when status not provided.",
+          "description": "Specify the status of the custom content. Defaults to current when status not provided.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Current",
+            "Draft"
+          ]
+        },
+        {
+          "title": "Representation",
+          "name": "representation",
+          "type": "select",
+          "tooltip": "Specify the type of content representation used for the value field. Valid values: storage, atlas_doc_format, raw",
+          "description": "Specify the type of content representation used for the value field. Valid values: storage, atlas_doc_format, raw",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Storage",
+            "Atlas Doc Format",
+            "Raw"
+          ]
+        },
+        {
+          "title": "Body",
+          "name": "value",
+          "type": "text",
+          "tooltip": "Specify the body of the custom content, in the format found in the representation field.",
+          "description": "Specify the body of the custom content, in the format found in the representation field.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "version Number",
+          "name": "number",
+          "type": "text",
+          "tooltip": "Specify the version number, must be incremented by one.",
+          "description": "Specify the version number, must be incremented by one.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "version Message",
+          "name": "message",
+          "type": "text",
+          "tooltip": "Specify an optional message to be stored with the version.",
+          "description": "Specify an optional message to be stored with the version.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Space ID",
+          "name": "spaceId",
+          "type": "text",
+          "tooltip": "ID of the containing space (must be the same as the spaceId of the space the custom content was created in).",
+          "description": "ID of the containing space (must be the same as the spaceId of the space the custom content was created in).\n\n",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Page ID",
+          "name": "pageId",
+          "type": "text",
+          "tooltip": "Specify the ID of the containing page.",
+          "description": "Specify the ID of the containing page.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Current",
+            "Draft"
+          ]
+        },
+        {
+          "title": "Blog Post ID",
+          "name": "blogPostId",
+          "type": "text",
+          "tooltip": "Specify the ID of the containing Blog Post.",
+          "description": "Specify the ID of the containing Blog Post.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Custom Content ID",
+          "name": "customContentId",
+          "type": "text",
+          "tooltip": "Specify the ID of the containing custom content.",
+          "description": "Specify the ID of the containing custom content.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "delete_custom_content",
+      "title": "Delete Custom Content",
+      "description": "Delete a custom content by id from Atlassian Confluence Cloud.",
+      "category": "investigation",
+      "annotation": "delete_custom_content",
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "content_id": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Custom Content ID",
+          "name": "id",
+          "type": "integer",
+          "tooltip": "Specify the ID of the custom content to be deleted.",
+          "description": "Specify the ID of the custom content to be deleted.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Purge",
+          "name": "purge",
+          "type": "checkbox",
+          "tooltip": "If attempting to purge the custom content.",
+          "description": "If attempting to purge the custom content.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "create_footer_comment",
+      "title": "Create Footer Comment",
+      "description": "Create a footer comment. The footer comment can be made against several locations:\n\nat the top level (specifying pageId or blogPostId in the request body)\nas a reply (specifying parentCommentId in the request body)\nagainst an attachment (note: this is different than the comments added via the attachment properties page on the UI, which are referred to as version comments)\nagainst a custom content",
+      "category": "investigation",
+      "annotation": "create_footer_comment",
+      "output_schema": {
+        "id": "",
+        "status": "",
+        "title": "",
+        "blogPostId": "",
+        "pageId": "",
+        "attachmentId": "",
+        "customContentId": "",
+        "parentCommentId": "",
+        "version": {
+          "createdAt": "",
+          "message": "",
+          "number": "",
+          "minorEdit": "",
+          "authorId": ""
+        },
+        "properties": {
+          "results": [
+            {
+              "id": "",
+              "key": "",
+              "version": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "operations": {
+          "results": [
+            {
+              "operation": "",
+              "targetType": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "likes": {
+          "results": [
+            {
+              "accountId": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "versions": {
+          "results": [
+            {
+              "createdAt": "",
+              "message": "",
+              "number": "",
+              "minorEdit": "",
+              "authorId": ""
+            }
+          ],
+          "meta": {
+            "hasMore": "",
+            "cursor": ""
+          },
+          "_links": {
+            "self": ""
+          }
+        },
+        "body": {
+          "storage": {},
+          "atlas_doc_format": {},
+          "view": {}
+        },
+        "_links": {
+          "base": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Blog Post ID",
+          "name": "blogPostId",
+          "type": "text",
+          "tooltip": "Specify the ID of the containing blog post, if intending to create a top level footer comment. Do not provide if creating a reply.",
+          "description": "Specify the ID of the containing blog post, if intending to create a top level footer comment. Do not provide if creating a reply.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Page ID",
+          "name": "pageId",
+          "type": "text",
+          "tooltip": "Specify the ID of the containing page, if intending to create a top level footer comment. Do not provide if creating a reply.",
+          "description": "Specify the ID of the containing page, if intending to create a top level footer comment. Do not provide if creating a reply.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Parent Comment ID",
+          "name": "parentCommentId",
+          "type": "text",
+          "tooltip": "Specify the ID of the parent comment, if intending to create a reply. Do not provide if creating a top level comment.",
+          "description": "Specify the ID of the parent comment, if intending to create a reply. Do not provide if creating a top level comment.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Attachment ID",
+          "name": "attachmentId",
+          "type": "text",
+          "tooltip": "Specify the ID of the attachment, if intending to create a comment against an attachment.",
+          "description": "Specify the ID of the attachment, if intending to create a comment against an attachment.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Custom Content ID",
+          "name": "customContentId",
+          "type": "text",
+          "tooltip": "Specify the ID of the custom content, if intending to create a comment against a custom content.",
+          "description": "Specify the ID of the custom content, if intending to create a comment against a custom content.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Representation",
+          "name": "representation",
+          "type": "text",
+          "tooltip": "Specify the Type of content representation used for the value field. Valid values: storage, atlas_doc_format, wiki",
+          "description": "Specify the Type of content representation used for the value field. Valid values: storage, atlas_doc_format, wiki.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Body",
+          "name": "value",
+          "type": "text",
+          "tooltip": "Specify the Body of the comment, in the format found in the representation field.",
+          "description": "Specify the Body of the comment, in the format found in the representation field.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "get_groups",
+      "title": "Get Groups",
+      "description": "Returns all user groups. The returned groups are ordered alphabetically in ascending order by group name.",
+      "category": "investigation",
+      "annotation": "get_groups",
+      "output_schema": {
+        "results": [
+          {
+            "type": "",
+            "name": "",
+            "id": "",
+            "_links": ""
+          }
+        ],
+        "start": "",
+        "limit": "",
+        "size": "",
+        "totalSize": "",
+        "_links": {}
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Offset",
+          "name": "start",
+          "type": "text",
+          "tooltip": "Specify the starting index of the returned groups.",
+          "description": "Specify the starting index of the returned groups.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "type": "text",
+          "tooltip": "Specify the maximum number of groups to return per page. Note, this may be restricted by fixed system limits.",
+          "description": "Specify the maximum number of groups to return per page. Note, this may be restricted by fixed system limits.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Access Type",
+          "name": "accessType",
+          "type": "select",
+          "tooltip": "Specify the group permission level for which to filter results. Valid values: user, admin, site-admin",
+          "description": "Specify the group permission level for which to filter results. Valid values: user, admin, site-admin",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "User",
+            "Admin",
+            "Site Admin"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "get_users",
+      "title": "Get Users",
+      "description": "Returns user details for the ids provided in the request. Currently this API returns a maximum of 100 results. If more than 100 account ids are passed in, then the first 100 will be returned.",
+      "category": "investigation",
+      "annotation": "get_users",
+      "output_schema": {
+        "results": [
+          {
+            "type": "",
+            "username": "",
+            "userKey": "",
+            "accountId": "",
+            "accountType": "",
+            "email": "",
+            "publicName": "",
+            "profilePicture": "",
+            "displayName": "",
+            "timeZone": "",
+            "isExternalCollaborator": "",
+            "isGuest": "",
+            "operations": "",
+            "details": "",
+            "personalSpace": "",
+            "_expandable": "",
+            "_links": ""
+          }
+        ],
+        "start": "",
+        "limit": "",
+        "size": "",
+        "_links": {}
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Account IDs",
+          "name": "accountId",
+          "type": "text",
+          "tooltip": "Specify the CSV list of accountId's of users to be returned.",
+          "description": "Specify the CSV list of accountId's of users to be returned.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Expand",
+          "name": "expand",
+          "type": "mutiselect",
+          "tooltip": "Specify a multi-value parameter indicating which properties of the user to expand.",
+          "description": "Specify a multi-value parameter indicating which properties of the user to expand.",
+          "required": false,
+          "options": [
+            "operations",
+            "personalSpace",
+            "isGuest"
+          ],
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "get_audit_records",
+      "title": "Get Audit Records",
+      "description": "Returns all records in the audit log, optionally for a certain date range. This contains information about events like space exports, group membership changes, app installations, etc. ",
+      "category": "investigation",
+      "annotation": "get_audit_records",
+      "output_schema": {
+        "results": [
+          {
+            "author": "",
+            "remoteAddress": "",
+            "creationDate": "",
+            "summary": "",
+            "description": "",
+            "category": "",
+            "sysAdmin": "",
+            "superAdmin": "",
+            "affectedObject": "",
+            "changedValues": "",
+            "associatedObjects": ""
+          }
+        ],
+        "start": "",
+        "limit": "",
+        "size": "",
+        "_links": {}
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Start Date",
+          "name": "startDate",
+          "type": "datetime",
+          "tooltip": "Filters the results to the records on or after the startDate.",
+          "description": "Filters the results to the records on or after the startDate. ",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "End Date",
+          "name": "endDate",
+          "type": "datetime",
+          "tooltip": "Filters the results to the records on or before the endDate.",
+          "description": "Filters the results to the records on or before the endDate.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Search String",
+          "name": "searchString",
+          "type": "text",
+          "tooltip": "Filters the results to records that have string property values matching the searchString.",
+          "description": "Filters the results to records that have string property values matching the searchString.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Offset",
+          "name": "start",
+          "type": "text",
+          "tooltip": "Specify the starting index of the returned records.",
+          "description": "Specify the starting index of the returned records.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "type": "text",
+          "tooltip": "Specify the maximum number of records to return per page. Note, this may be restricted by fixed system limits. Default: 1000",
+          "description": "Specify the maximum number of records to return per page. Note, this may be restricted by fixed system limits. Default: 1000",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "get_attachments",
+      "title": "Get Attachments",
+      "description": "Returns all attachments. The number of results is limited by the limit parameter and additional results (if available) will be available through the next URL present in the Link response header.",
+      "category": "investigation",
+      "annotation": "get_attachments",
+      "output_schema": {
+        "results": [
+          {
+            "id": "",
+            "status": "",
+            "title": "",
+            "createdAt": "",
+            "pageId": "",
+            "blogPostId": "",
+            "customContentId": "",
+            "mediaType": "",
+            "mediaTypeDescription": "",
+            "comment": "",
+            "fileId": "",
+            "fileSize": "",
+            "webuiLink": "",
+            "downloadLink": "",
+            "version": "",
+            "_links": ""
+          }
+        ],
+        "_links": {
+          "next": "",
+          "base": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Sort",
+          "name": "sort",
+          "type": "text",
+          "tooltip": "Used to sort the result by a particular field. Valid values: created-date, -created-date, modified-date, -modified-date",
+          "description": "Used to sort the result by a particular field. Valid values: created-date, -created-date, modified-date, -modified-date",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Cursor",
+          "name": "cursor",
+          "type": "text",
+          "tooltip": "Used for pagination, this opaque cursor will be returned in the next URL in the Link response header. Use the relative URL in the Link header to retrieve the next set of results.",
+          "description": "Used for pagination, this opaque cursor will be returned in the next URL in the Link response header. Use the relative URL in the Link header to retrieve the next set of results.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "text",
+          "tooltip": "Filter the results to attachments based on their status. By default, current and archived are used. Valid values: current, archived, trashed",
+          "description": "Filter the results to attachments based on their status. By default, current and archived are used. Valid values: current, archived, trashed",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Media Type",
+          "name": "mediaType",
+          "type": "text",
+          "tooltip": "Filters on the mediaType of attachments. Only one may be specified.",
+          "description": "Filters on the mediaType of attachments. Only one may be specified.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "File Name",
+          "name": "filename",
+          "type": "text",
+          "tooltip": "Filters on the file-name of attachments. Only one may be specified.",
+          "description": "Filters on the file-name of attachments. Only one may be specified.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "type": "text",
+          "tooltip": "Maximum number of attachments per result to return. If more results exist, use the Link header to retrieve a relative URL that will return the next set of results.Default: 50 and Maximum: 250",
+          "description": "Maximum number of attachments per result to return. If more results exist, use the Link header to retrieve a relative URL that will return the next set of results.Default: 50 and Maximum: 250",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    }
+  ]
+}
+
+

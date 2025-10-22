@@ -1,0 +1,1506 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - Atlassian Confluence Cloud - 1.0.0",
+      "description": "Sample playbooks for \"Atlassian Confluence Cloud\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
+      "visible": true,
+      "image": "",
+      "uuid": "91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+      "id": 479,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Custom Content",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Update a custom content by id. At most one of spaceId, pageId, blogPostId, or customContentId is allowed in the request body. Note that if spaceId is specified, it must be the same as the spaceId used for creating the custom content as moving custom content to a different space is not supported.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761155356,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/112a13b9-dda2-4619-8ef6-c640954a127c",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "094bd3ff-a4d0-456f-91b3-11ca1b281b1d",
+                "title": "Atlassian Confluence Cloud: Update Custom Content",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "112a13b9-dda2-4619-8ef6-c640954a127c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Custom Content",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": {
+                  "id ": "2234",
+                  "type": "Test",
+                  "title": "",
+                  "value": "test",
+                  "number": "",
+                  "pageId": "",
+                  "status": "Current",
+                  "message": "",
+                  "spaceId": "",
+                  "blogPostId": "",
+                  "representation": "Atlas Doc Format",
+                  "customContentId": ""
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "update_custom_content",
+                "operationTitle": "Update Custom Content",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "4e76c4e2-318f-48fa-b522-97d4995db18d"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Update Custom Content",
+              "targetStep": "/api/3/workflow_steps/4e76c4e2-318f-48fa-b522-97d4995db18d",
+              "sourceStep": "/api/3/workflow_steps/112a13b9-dda2-4619-8ef6-c640954a127c",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "dd1df441-fd02-4038-aff9-1ee7cf353ee5"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "0bdda716-8d27-4122-a3bf-1368c8159738",
+          "id": 5614,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Custom Contents",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Retrieves a list of content from Atlassian Confluence Server based on the space key, page title and other input parameters you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761154546,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/fc2834d0-bb96-4804-9adc-8dd3eb2a0d89",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "9dc643f6-30a7-41a4-970e-2182789e654e",
+                "title": "Atlassian Confluence Cloud: Get Custom Contents",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "fc2834d0-bb96-4804-9adc-8dd3eb2a0d89"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Custom Contents",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": {
+                  "id": "",
+                  "sort": "id",
+                  "type": "test",
+                  "limit": 10,
+                  "cursor": "",
+                  "space-id": "",
+                  "body-format": "\"1\""
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "get_custom_contents",
+                "operationTitle": "Get Custom Contents",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "160",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "085c887f-4a77-49ab-9279-a75126cbb54c"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Custom Contents",
+              "targetStep": "/api/3/workflow_steps/085c887f-4a77-49ab-9279-a75126cbb54c",
+              "sourceStep": "/api/3/workflow_steps/fc2834d0-bb96-4804-9adc-8dd3eb2a0d89",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "83ea7536-2049-409f-8e64-b6925245b97c"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "1968fa95-3a39-4546-83ad-1f0739124cdb",
+          "id": 5615,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Specific Custom Content",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Returns a specific piece of custom content.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761154736,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/50494a30-023c-44bc-ba6f-447c30e95bdd",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "971040d1-07a9-4907-b6ec-89a69b7b665a",
+                "title": "Atlassian Confluence Cloud: Get Specific Custom Content",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "50494a30-023c-44bc-ba6f-447c30e95bdd"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Specific Custom Content",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": {
+                  "id": "123",
+                  "version": 12,
+                  "body-format": "raw",
+                  "include-labels": true,
+                  "include-version": true,
+                  "include-operations": true,
+                  "include-properties": true,
+                  "include-collaborators": true
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "get_specific_custom_content",
+                "operationTitle": "Get Specific Custom Content",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "9eddfc8b-2aca-4823-881e-8d60805ef0eb"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Specific Custom Content",
+              "targetStep": "/api/3/workflow_steps/9eddfc8b-2aca-4823-881e-8d60805ef0eb",
+              "sourceStep": "/api/3/workflow_steps/50494a30-023c-44bc-ba6f-447c30e95bdd",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "72c4cec6-f03f-42e9-86ba-99befb428de6"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "21c20311-6967-4355-ad90-8fcddd230484",
+          "id": 5616,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Custom Content",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Creates a new custom content in the given space, page, blogpost or other custom content.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761155005,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/4e4735c6-a603-4d2f-b0d3-483a4cdc98e3",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "34e58dba-6443-4739-b1c5-0e0918de5405",
+                "title": "Atlassian Confluence Cloud: Create Custom Content",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "4e4735c6-a603-4d2f-b0d3-483a4cdc98e3"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Custom Content",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": {
+                  "type": "blogpostqw",
+                  "title": "Test",
+                  "value": "test",
+                  "pageId": "12334",
+                  "status": "Current",
+                  "spaceId": "",
+                  "blogPostId": "",
+                  "representation": "Storage",
+                  "customContentId": ""
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "create_custom_content",
+                "operationTitle": "Create Custom Content",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "160",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "00e7e01f-971e-4541-8c46-cedb477fbf0a"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Create Custom Content",
+              "targetStep": "/api/3/workflow_steps/00e7e01f-971e-4541-8c46-cedb477fbf0a",
+              "sourceStep": "/api/3/workflow_steps/4e4735c6-a603-4d2f-b0d3-483a4cdc98e3",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "01022082-27aa-41a4-ba49-0fffb0b699a7"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "3e9531fe-8043-43e8-b5ae-832fcee769b9",
+          "id": 5617,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Footer Comment",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Create a footer comment. The footer comment can be made against several locations:\n\nat the top level (specifying pageId or blogPostId in the request body)\nas a reply (specifying parentCommentId in the request body)\nagainst an attachment (note: this is different than the comments added via the attachment properties page on the UI, which are referred to as version comments)\nagainst a custom content",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761155543,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/3334d07a-142f-44ae-82f5-1169b901d545",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "638fb0a6-c637-4c37-9d39-db905cc63ad4",
+                "title": "Atlassian Confluence Cloud: Create Footer Comment",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "3334d07a-142f-44ae-82f5-1169b901d545"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Footer Comment",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": {
+                  "value": "",
+                  "pageId": "",
+                  "blogPostId": "",
+                  "attachmentId": "",
+                  "representation": "",
+                  "customContentId": "",
+                  "parentCommentId": ""
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "create_footer_comment",
+                "operationTitle": "Create Footer Comment",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "160",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "5f074a0b-866a-43d5-9b6d-a9ebf202cb48"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Create Footer Comment",
+              "targetStep": "/api/3/workflow_steps/5f074a0b-866a-43d5-9b6d-a9ebf202cb48",
+              "sourceStep": "/api/3/workflow_steps/3334d07a-142f-44ae-82f5-1169b901d545",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "44af4120-b18b-45db-ae75-a71b21f86428"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "7d310e5a-055d-4fa0-9cc1-167559bf2f27",
+          "id": 5618,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Attachments",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Returns all attachments. The number of results is limited by the limit parameter and additional results (if available) will be available through the next URL present in the Link response header.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761154113,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/bcd06ca7-4664-4c2c-8240-7241ccdeb9e8",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "137032a5-476a-456d-9b3a-624770acf98f",
+                "title": "Atlassian Confluence Cloud: Get Attachments",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "bcd06ca7-4664-4c2c-8240-7241ccdeb9e8"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Attachments",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "get_attachments",
+                "operationTitle": "Get Attachments",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "0f9663bd-e3cd-42c2-8227-4a3227a5872c"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Attachments",
+              "targetStep": "/api/3/workflow_steps/0f9663bd-e3cd-42c2-8227-4a3227a5872c",
+              "sourceStep": "/api/3/workflow_steps/bcd06ca7-4664-4c2c-8240-7241ccdeb9e8",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "9b18df8c-2d7f-4ce2-90de-170e93a0b265"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "873bace4-093d-40c5-b3ec-0d75da170da9",
+          "id": 5619,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Groups",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Returns all user groups. The returned groups are ordered alphabetically in ascending order by group name.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761151637,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/6db8d987-f688-430f-9cfa-6dca88beee04",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "aeb9603e-ba2d-493d-99fd-e06c3c2c9d9a",
+                "title": "Atlassian Confluence Cloud: Get Groups",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "6db8d987-f688-430f-9cfa-6dca88beee04"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Groups",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": {
+                  "limit": "5",
+                  "start": "1",
+                  "accessType": "Site Admin"
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "get_groups",
+                "operationTitle": "Get Groups",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "160",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "3797a185-251a-4097-bb33-3efb5c9238ee"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Groups",
+              "targetStep": "/api/3/workflow_steps/3797a185-251a-4097-bb33-3efb5c9238ee",
+              "sourceStep": "/api/3/workflow_steps/6db8d987-f688-430f-9cfa-6dca88beee04",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "998476cf-428c-460c-85a3-3df45748ce5b"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "9261d2bc-16a7-4734-a4ae-539c47cf6395",
+          "id": 5620,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Audit Records",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Returns all records in the audit log, optionally for a certain date range. This contains information about events like space exports, group membership changes, app installations, etc. ",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761151024,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/37f051b3-73c2-4497-9c18-111fb405aa68",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "5e4820a1-c679-408f-809a-b664ee82a40f",
+                "title": "Atlassian Confluence Cloud: Get Audit Records",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "37f051b3-73c2-4497-9c18-111fb405aa68"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Audit Records",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": {
+                  "limit": "100",
+                  "start": "",
+                  "endDate": "2025-10-27T18:30:00.000Z",
+                  "startDate": "",
+                  "searchString": ""
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "get_audit_records",
+                "operationTitle": "Get Audit Records",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "160",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "ff17313e-8c35-4378-b1b3-3dc765ada0ed"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Audit Records",
+              "targetStep": "/api/3/workflow_steps/ff17313e-8c35-4378-b1b3-3dc765ada0ed",
+              "sourceStep": "/api/3/workflow_steps/37f051b3-73c2-4497-9c18-111fb405aa68",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "224e313c-2c7b-431a-bf47-e51cf982e24f"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "a4e01dc4-2ef8-4227-9557-5969380f28ad",
+          "id": 5621,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Users",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Returns user details for the ids provided in the request. Currently this API returns a maximum of 100 results. If more than 100 account ids are passed in, then the first 100 will be returned.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761154078,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/bb3db31b-1bba-4e27-82a9-edaeda9953cd",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "53b76262-450a-4179-9bb7-6060d2e1da13",
+                "title": "Atlassian Confluence Cloud: Get Users",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "bb3db31b-1bba-4e27-82a9-edaeda9953cd"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Users",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": {
+                  "expand": "",
+                  "accountId": "123"
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "get_users",
+                "operationTitle": "Get Users",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "f4a99fa6-5904-4b5a-b1c4-8392e0df0eba"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Users",
+              "targetStep": "/api/3/workflow_steps/f4a99fa6-5904-4b5a-b1c4-8392e0df0eba",
+              "sourceStep": "/api/3/workflow_steps/bb3db31b-1bba-4e27-82a9-edaeda9953cd",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "327be696-b88a-4dc2-9cbf-7e22035ff97c"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "b4f89472-73ba-4b65-b027-66c01d9ad194",
+          "id": 5622,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Space",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Creates a new space. Note, currently you cannot set space labels when creating a space.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761155704,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/7d34f88f-b9cc-42a7-a42e-ae0bd180b0d9",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "23c11d41-93ae-4644-999e-2e5d8e92de81",
+                "title": "Atlassian Confluence Cloud: Create Space",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "7d34f88f-b9cc-42a7-a42e-ae0bd180b0d9"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Space",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": {
+                  "key": "",
+                  "name": "test",
+                  "alias": "",
+                  "value": "",
+                  "templateKey": "",
+                  "representation": "",
+                  "roleAssignments": "",
+                  "createPrivateSpace": false,
+                  "copySpaceAccessConfiguration": ""
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "create_space",
+                "operationTitle": "Create Space",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "160",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "c06ba91d-ee59-4c4b-bc1e-27e28288b679"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Create Space",
+              "targetStep": "/api/3/workflow_steps/c06ba91d-ee59-4c4b-bc1e-27e28288b679",
+              "sourceStep": "/api/3/workflow_steps/7d34f88f-b9cc-42a7-a42e-ae0bd180b0d9",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "654c2d49-9522-4072-964a-3ea5fa379516"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "d5818e20-b56b-48ef-b883-6cde2afe91d4",
+          "id": 5623,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Spaces",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Retrieves a list of all spaces from Atlassian Confluence Cloud based on the input parameters you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761153030,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/70a702ec-036d-4ebb-8dc7-5dbc01066137",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "32009472-baef-4e23-81a8-65213882f287",
+                "title": "Atlassian Confluence Cloud: Get Spaces",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "70a702ec-036d-4ebb-8dc7-5dbc01066137"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Spaces",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": {
+                  "ids": "66190, 229380",
+                  "keys": "TS",
+                  "sort": "",
+                  "type": "Personal",
+                  "limit": "",
+                  "labels": "test",
+                  "status": "Current",
+                  "favorited-by": "",
+                  "include-icon": true,
+                  "not-favorited-by": "",
+                  "description-format": "Plain"
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "get_spaces",
+                "operationTitle": "Get Spaces",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "160",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "55459fb8-14c7-4db4-bddb-f598fc66d815"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Spaces",
+              "targetStep": "/api/3/workflow_steps/55459fb8-14c7-4db4-bddb-f598fc66d815",
+              "sourceStep": "/api/3/workflow_steps/70a702ec-036d-4ebb-8dc7-5dbc01066137",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "00d4a871-f66c-42d6-a01a-cb4e2888f14e"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "e42a1542-aff2-4101-a14d-88e70d2cdab3",
+          "id": 5624,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Specific Spaces Details",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Retrieves the details of a specific space from Atlassian Confluence Cloud based on the input parameters you specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761153730,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/020eede4-c719-4ea4-b6dc-49b10f13de60",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "60a7b034-a6e3-4fa3-b33e-83680be2842a",
+                "title": "Atlassian Confluence Cloud: Get Specific Spaces Details",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "020eede4-c719-4ea4-b6dc-49b10f13de60"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Specific Spaces Details",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": {
+                  "id": "66190",
+                  "include-icon": false,
+                  "include-labels": false,
+                  "description-format": "Plain",
+                  "include-operations": false,
+                  "include-properties": false,
+                  "include-permissions": false,
+                  "include-role-assignments": true
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "get_specific_space_details",
+                "operationTitle": "Get Specific Spaces Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "160",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "ce20c451-6cfc-4a37-8822-8915a82ff0a4"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Specific Spaces Details",
+              "targetStep": "/api/3/workflow_steps/ce20c451-6cfc-4a37-8822-8915a82ff0a4",
+              "sourceStep": "/api/3/workflow_steps/020eede4-c719-4ea4-b6dc-49b10f13de60",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "6e77f944-020a-42b7-b9ce-0e251ce5cb20"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "eb704a6a-af55-47f5-a470-109d8c751dfc",
+          "id": 5625,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Custom Content",
+          "aliasName": null,
+          "tag": "#Atlassian Confluence Cloud",
+          "description": "Delete a custom content by id from Atlassian Confluence Cloud.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1761151648,
+          "collection": "/api/3/workflow_collections/91e2b242-b9a0-4db4-87f3-de35a42b5adb",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/af8ae147-9716-4e78-bd83-f9075bc66918",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "dc9b1126-38e9-46f6-b8b1-cb501c1fa003",
+                "title": "Atlassian Confluence Cloud: Delete Custom Content",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "af8ae147-9716-4e78-bd83-f9075bc66918"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Custom Content",
+              "description": null,
+              "arguments": {
+                "name": "Atlassian Confluence Cloud",
+                "config": "bcce86d7-5d0b-43df-82b8-9949c5dc25f5",
+                "params": {
+                  "id": 123,
+                  "purge": 1
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-cloud",
+                "operation": "delete_custom_content",
+                "operationTitle": "Delete Custom Content",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "180bd238-9952-4e39-9468-d28b87d16bed"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Delete Custom Content",
+              "targetStep": "/api/3/workflow_steps/180bd238-9952-4e39-9468-d28b87d16bed",
+              "sourceStep": "/api/3/workflow_steps/af8ae147-9716-4e78-bd83-f9075bc66918",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "9b06c359-1e14-4da2-a4e5-6858142837ec"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "f53f5d86-cc69-4dc4-a7c8-4f4acc499ce3",
+          "id": 5626,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        }
+      ]
+    }
+  ],
+  "exported_tags": []
+}
