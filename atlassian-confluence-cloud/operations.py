@@ -138,6 +138,7 @@ def create_custom_content(config, params):
 
 def get_specific_custom_content(config, params):
     client = AtlassianConfluenceCloud(config)
+    params['body-format'] = params.get('body-format', '').replace(' ', '_').lower()
     params = build_params(params)
     custom_content_id = params.pop('id', '')
     endpoint = f'/wiki/api/v2/custom-content/{custom_content_id}'

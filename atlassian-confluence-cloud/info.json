@@ -694,11 +694,7 @@
           "description": "Specify the ID of the containing page.",
           "required": false,
           "editable": true,
-          "visible": true,
-          "options": [
-            "Current",
-            "Draft"
-          ]
+          "visible": true
         },
         {
           "title": "Blog Post ID",
@@ -846,7 +842,7 @@
         {
           "title": "Body Format",
           "name": "body-format",
-          "type": "text",
+          "type": "select",
           "tooltip": "The content format types to be returned in the body field of the response. If available, the representation will be available under a response field of the same name under the body field. Note: If the custom content body type is storage, the storage and atlas_doc_format body formats are able to be returned. If the custom content body type is raw, only the raw body format is able to be returned. Valid values: raw, storage, atlas_doc_format, view, export_view, anonymous_export_view",
           "description": "The content format types to be returned in the body field of the response. If available, the representation will be available under a response field of the same name under the body field. Note: If the custom content body type is storage, the storage and atlas_doc_format body formats are able to be returned. If the custom content body type is raw, only the raw body format is able to be returned. Valid values: raw, storage, atlas_doc_format, view, export_view, anonymous_export_view",
           "required": false,
@@ -894,17 +890,12 @@
         {
           "title": "Include Version",
           "name": "include-version",
-          "type": "checkbox",
+          "type": "text",
           "tooltip": "Includes the current version associated with this custom content in the response. By default this is included and can be omitted by setting the value to false.",
           "description": "Includes the current version associated with this custom content in the response. By default this is included and can be omitted by setting the value to false.",
           "required": false,
           "editable": true,
-          "visible": true,
-          "options": [
-            "Storage",
-            "Atlas Doc Format",
-            "Raw"
-          ]
+          "visible": true
         },
         {
           "title": "Include Collaborators",
@@ -1192,7 +1183,7 @@
           "visible": true
         },
         {
-          "title": "version Number",
+          "title": "Version Number",
           "name": "number",
           "type": "text",
           "tooltip": "Specify the version number, must be incremented by one.",
@@ -1202,7 +1193,7 @@
           "visible": true
         },
         {
-          "title": "version Message",
+          "title": "Version Message",
           "name": "message",
           "type": "text",
           "tooltip": "Specify an optional message to be stored with the version.",
@@ -1229,11 +1220,7 @@
           "description": "Specify the ID of the containing page.",
           "required": false,
           "editable": true,
-          "visible": true,
-          "options": [
-            "Current",
-            "Draft"
-          ]
+          "visible": true
         },
         {
           "title": "Blog Post ID",
